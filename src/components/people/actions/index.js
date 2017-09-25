@@ -1,2 +1,2 @@
-export * from './CalendarActions';
-export * from './LeadersActions';
+export * from './FacebookActions';
+export * from './PeopleActions';

@@ -1,3 +1,7 @@
+//personal info
+export const REQUEST_PERSONAL_INFO = 'request_personal';
+export const REQUEST_PERSONAL_INFO_SUCCESS = 'request_personal_success';
+export const REQUEST_PERSONAL_INFO_FAIL = 'request_personal_fail';
 //FB Request
 export const REQUEST_FB_POST = 'request_posts';
 export const REQUEST_FB_POST_SUCCESS = 'request_posts_success';
