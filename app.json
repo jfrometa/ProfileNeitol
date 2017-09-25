@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "ProfileNeitol",
+    "description": "React-Native Starter Kit by Upgrade Developer Group",
+    "privacy": "public",
+    "sdkVersion": "21.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#FFFFFF",
+    "icon": "./assets/icons/app.png",
+    "loading": {
+      "icon": "./assets/icons/app.png",
+      "hideExponentText": true
+    },
+    "packagerOpts": {
+      "assetExts": ["ttf", "mp4"]
+    },
+    "ios": {
+      "bundleIdentifier": "ntv.upgrade.ProfileNeitol",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "ntv.upgrade.upsports"
+    }
+  }
+}
