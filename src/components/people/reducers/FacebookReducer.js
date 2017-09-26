@@ -3,8 +3,7 @@ import {
     REQUEST_FB_POST,
     REQUEST_FB_POST_SUCCESS,
     REQUEST_FB_POST_FAIL,
-    SELECTED_POST,
-    REQUEST_FB_SPONSOR_SUCCESS
+    SELECTED_POST
 } from '../../types';
 
   //all states this reducer contains.
@@ -26,9 +25,6 @@ import {
        //...INITIAL_STATE takes all the defaults and calendar: overrides the initial value
        case REQUEST_FB_POST_SUCCESS:
        return { ...state, loading: false, post: action.payload };
-
-       case REQUEST_FB_SPONSOR_SUCCESS:
-       return { ...state, loading: false, sponsorpost: action.payload };
 
        case SELECTED_POST :
        return { ...state, postId: action.payload };

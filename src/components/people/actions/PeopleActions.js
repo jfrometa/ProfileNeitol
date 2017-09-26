@@ -10,9 +10,10 @@ export const requestPersonalInfo = () => {
    dispatch({ type: REQUEST_PERSONAL_INFO });
 
    firebase.database()
-   .ref('/informacion_personal')
+   .ref('/Informacion_personal')
    .on('value', snapshot => {
-   requestPersonalInfoSuccess(dispatch, snapshot);
+     console.log(snapshot);
+     requestPersonalInfoSuccess(dispatch, snapshot);
     });
   };
 };
