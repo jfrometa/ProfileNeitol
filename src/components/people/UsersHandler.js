@@ -6,10 +6,8 @@ import { connect } from 'react-redux';
 } from 'react-native';
 import ScrollableTabView, { DefaultTabBar, } from 'react-native-scrollable-tab-view';
 import {
-  requestTournament,
-  requestDivisions,
-  selectedDivision,
-  selectedTournament } from './actions';
+  requestPersonalInfo
+} from './actions';
 import { C_NAV_MENU, C_DEFAULT_TEXT_COLOR, C_ACCENT } from '../types';
 import UsersList from './UsersList';
 
@@ -71,34 +69,40 @@ const mapStateToProps = (state) => {
   //transform object into key, value
     const {
       loading,
-      error } = state.leadsInfo;
+      error } = state.person;
 
   const rows = [];
-  const localLabels = ['Goles', 'T. Amarillas', 'T. Rojas'];
+  const localLabels = ['Contacts', 'Public Profile'];
   let i = 0;
   localLabels.forEach(label => {
     i++;
-    rows.push(
-          <View
-            tabLabel={label}
-            key={i}
-            style={styles.tabView}
-          >
-            <UsersList
-              label={label}
-              division={state.calendarInfo.division}
-              tournament={state.calendarInfo.tournament}
-            />
-          </View>
-          );
-  });
+    if (label === 'Contacts') {
+      rows.push(
+        <View
+          tabLabel={label}
+          key={i}
+          style={styles.tabView}
+        >
+          <UsersList
+            label={label}
+          />
+        </View>
+      );
+    } else {
+      rows.push(
+        <View
+          tabLabel={label}
+          key={i}
+          style={styles.tabView}
+        />
+      );
+    }
+    });
 
   return {
     error,
     loading,
-    rows,
-    tournament: state.calendarInfo.tournament,
-    division: state.calendarInfo.division };
+    rows };
 };
-export default connect(mapStateToProps,
-  { requestTournament, requestDivisions, selectedTournament, selectedDivision })(UsersHandler);
+
+export default connect(mapStateToProps, { requestPersonalInfo })(UsersHandler);

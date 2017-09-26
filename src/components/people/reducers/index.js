@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import CalendarReducer from './CalendarReducer';
-import LeadersReducer from './LeadersReducer';
+import FacebookReducer from './FacebookReducer';
+import PeopleReducer from './PeopleReducer';
 
+//combine all reducers docs. http://redux.js.org/docs/api/combineReducers.html
  export default combineReducers({
-   calendarInfo: CalendarReducer,
-   leadsInfo: LeadersReducer,
+   facebook: FacebookReducer,
+   person: PeopleReducer,
  });

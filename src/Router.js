@@ -174,16 +174,14 @@ const scenes = Actions.create(
       );
     }
 }
-const mapStateToProps = (state) => {
-  //transform object into key, value
-    const {
-      tournamentName,
-      divisionName } = state.calendarInfo;
-      //  console.log('STORE_STORE', divisionName);
-    //  scenes.calendar({ title: divisionName });
-  return { tournamentName, divisionName };
-};
-const ConnectedRouter = connect()(RouterComponent);
+// const mapStateToProps = (state) => {
+//   //transform object into key, value
+//
+//       //  console.log('STORE_STORE', divisionName);
+//     //  scenes.calendar({ title: divisionName });
+//   return { };
+// };
+//const ConnectedRouter = connect()(RouterComponent);
 
-export default connect(mapStateToProps,
-  {})(ConnectedRouter);
+export default connect(null,
+  {})(RouterComponent);
