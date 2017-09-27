@@ -22,8 +22,8 @@ persistStore(
   { storage: AsyncStorage,
   //whitelist array keys (read: reducers) to persist, if set all other keys will be ignored.
    whitelist: [
-     'leadsInfo',
-     'calendarInfo']
+     'people',
+     'facebook']
    }).purge();
 
 export default store;

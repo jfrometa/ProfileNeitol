@@ -17,7 +17,7 @@ import {
   TOURNAMENT_IMAGE,
   C_DEFAULT,
   I_LEADS,
-  SETTINGS
+  icons
 } from './components/types';
 
 //by using StyleSheet for your styles you will eliminate unnecesary JS bridge conections
@@ -73,70 +73,30 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   }
 });
-//////  TABS ICONS
-const leadsIcon = ({ selected, title }) => {
-  return (
-    <View>
-      <Image
-        source={I_LEADS}
-        style={[styles.iconBottomBar,
-          { tintColor: selected ? C_ACCENT : C_DEFAULT }]}
-      />
-      <Text
-         style={{
-         color: selected ? C_ACCENT : C_DEFAULT,
-         fontSize: 11 }}
-      >
-         {title}
-      </Text>
-    </View>
-  );
-};
-const newsfeedIcon = ({ selected, title }) => {
-  return (
-    <View>
-    <Image
-      source={I_NEWSFEED}
-      style={[styles.iconBottomBar,
-        { tintColor: selected ? C_ACCENT : C_DEFAULT }]}
-    />
-      <Text
-         style={{
-         color: selected ? C_ACCENT : C_DEFAULT,
-         fontSize: 11 }}
-      >
-         {title}
-      </Text>
-    </View>
-  );
-};
+
 //////// SCENES
 const scenes = Actions.create(
     <Scene key="main" style={styles.primaryColorBackGround}>
       <Scene
-        key="leadtab"
-        icon={leadsIcon}
-        eftButtonIconStyle={styles.navBarLeft}
+        key="profiles"
         rightButtonIconStyle={styles.navBarRight}
         titleStyle={styles.navBarTittle}
         sceneStyle={styles.scene}
-        leftButtonImage={SETTINGS}
-        onLeft={() => Actions.newssettings()}
-        rightButtonImage={TOURNAMENT_IMAGE}
-        onRight={() => Actions.tournamentNdDivisionsLead()}
+        rightButtonImage={icons.settings}
+        onRight={() => Actions.support()}
         component={UsersHandler}
-        title="Perfiles"
+        title="Profiles"
       />
 
      <Scene
        leftButtonText={styles.navBarLeftText}
        leftButtonIconStyle={styles.navBarLeft}
        backButtonTextStyle={styles.navBarLeftText}
-       backTitle="Atras"
+       backTitle="Back"
        sceneStyle={styles.scene}
-       key="newssettings"
+       key="support"
        component={Support}
-       title="Configuracion"
+       title="Support"
      />
 
     <Scene

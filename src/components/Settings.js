@@ -12,7 +12,7 @@ import { Actions } from 'react-native-router-flux';
 import {
   C_NAV_MENU,
   C_ACCENT,
-  UPGRADE_LOGO,
+  icons,
   C_GREY_1,
   C_UPGRADE,
   C_GREY_3
@@ -141,7 +141,7 @@ class Settings extends Component {
         </Text>
         <Image
         resizeMode='contain'
-        source={UPGRADE_LOGO}
+        source={icons.upgrade}
         style={styles.upgradeLogo}
         />
       </View>

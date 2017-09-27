@@ -44,27 +44,12 @@ export const C_BLACK_0 = '#1e1e1e';
 export const C_BLACK_TEXT = '#000000';
 export const C_DIVIDER = '#dddddd';
 
-// // IMAGES
-export const GOAL_IMAGE = require('../assets/goal.png');
-export const TOURNAMENT_IMAGE = require('../assets/Torneo.png');
-export const YELLOW_CARD_IMAGE = require('../assets/yellow_card.png');
-export const RED_CARD_IMAGE = require('../assets/red_card.png');
-export const TIME_IMAGE = require('../assets/time.jpeg');
-export const I_LEADS = require('../assets/lideres.png');
-export const I_NEWSFEED = require('../assets/Newsfeed.png');
-export const I_CALENDAR = require('../assets/Calendario.png');
-export const COMPANY_LOGO = require('../assets/app_icon.png');
-export const BPD_LOGO = require('../assets/bpd_logo_horizontal.png');
-export const UPGRADE_LOGO = require('../assets/Upgrade.png');
-export const SETTINGS = require('../assets/Settings.png');
-
 ////// ICONS
-export const ICONS = {
-    club: require('../assets/Iclubs.png'),
-    division: require('../assets/Idivisions.png'),
-    goals: require('../assets/Igoals.png'),
-    cards: require('../assets/Icards.png'),
-    position: require('../assets/Iposition.png'),
-    dominantFoot: require('../assets/Idominantfoot.png'),
-    weight: require('../assets/Iweight.png')
+export const icons = {
+    upgradeLogo: require('../assets/Upgrade.png'),
+    settings: require('../assets/Settings.png'),
+    lenguage: require('../assets/lenguage.png'),
+    religion: require('../assets/religion.png'),
+    party: require('../assets/party.png'),
+    nationality: require('../assets/nationality.png')
 };
