@@ -7,77 +7,56 @@ import {
   C_ACCENT,
   C_CARD_COLOR,
   C_DEFAULT_TEXT_COLOR,
-  GOAL_IMAGE,
-  YELLOW_CARD_IMAGE,
-  RED_CARD_IMAGE
+  C_GREY_3
 } from '../types';
 
 class LeadsItem extends Component {
+  componentWillMount() {
+    //console.log('details', this.props.details);
+  }
+
   toggleModalAndRequestDetails() {
     //router flux call to the userDetails panel with props
-    Actions.slidingupplayer({ details: this.props.leads });
+    Actions.userpanel({ details: this.props.details });
   }
-
-rederIcon(action) {
-  switch (action) {
-    case 'Goles':
-      return GOAL_IMAGE;
-
-    case 'T. Amarillas':
-      return YELLOW_CARD_IMAGE;
-
-    case 'T. Rojas':
-      return RED_CARD_IMAGE;
-
-    default:
-      return GOAL_IMAGE;
+renderName(name, lastname) {
+  if (this.props.details !== undefined) {
+    return `${name} ${lastname}`;
   }
 }
-renderStat(label) {
-  if (label === 'Goles') {
-    return this.props.leads.goals;
-  } else if (label === 'T. Amarillas') {
-    return this.props.leads.yellow_cards;
-  }
-  return this.props.leads.red_cards;
-}
+ // bday
+ // lastname
+ // mothertonge
+ // name
+ // nationality
+ // party
+ // picture
+ // religion
 
-renderPicture() {
-  if (this.props.leads.picture) {
-    return (
-    <Image
-      style={styles.image}
-      source={{ uri: this.props.leads.picture }}
-      cache
-    />
-  );
-  }
-}
   render() {
     const {
-       name,
-       team } = this.props.leads;
+     bday,
+     lastname,
+     mothertonge,
+     name,
+     nationality,
+     party,
+     picture,
+     religion } = this.props.details;
 
     return (
       <View style={styles.cardStyle}>
       <TouchableOpacity onPress={this.toggleModalAndRequestDetails.bind(this)} >
           <View style={styles.container}>
-
-            {this.renderPicture()}
-
-            <View style={styles.tittleContainer}>
-              <Text style={styles.playerName}>{name}</Text>
-              <Text style={styles.teamName}>{team}</Text>
-
-            </View>
-
-            <View style={styles.statistics}>
-              <Text style={styles.stat}>{this.renderStat(this.props.label)}</Text>
-              <Image
-               source={this.rederIcon(this.props.label)}
-               style={styles.icon}
-              />
-            </View>
+          <Image
+            style={styles.image}
+            source={{ uri: picture }}
+            cache
+          />
+          <View style={styles.nameAndNationality}>
+            <Text style={styles.playerName}>{this.renderName(name, lastname) }</Text>
+            <Text style={styles.nationality}>{nationality}</Text>
+          </View>
         </View>
     </TouchableOpacity>
   </View>
@@ -102,8 +81,15 @@ const styles = StyleSheet.create({
     padding: 1,
     fontSize: 16,
     fontWeight: '500',
-    textAlign: 'center',
+    textAlign: 'left',
     color: C_DEFAULT_TEXT_COLOR
+  },
+  nationality: {
+    padding: 1,
+    fontSize: 14,
+    fontWeight: '300',
+    textAlign: 'left',
+    color: C_GREY_3
   },
   teamName: {
     padding: 1,
@@ -125,6 +111,11 @@ const styles = StyleSheet.create({
 },
   container: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 12
+  },
+  nameAndNationality: {
+    flexDirection: 'column',
     justifyContent: 'space-between',
     padding: 12
   },

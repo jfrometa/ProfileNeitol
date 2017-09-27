@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Image } from 'react-native';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
-import LeadersView from './components/people/UsersHandler';
+import UsersHandler from './components/people/UsersHandler';
 import UserPanel from './components/people/UserPanel';
 import Support from './components/Support';
 
@@ -115,7 +115,6 @@ const scenes = Actions.create(
     <Scene key="main" style={styles.primaryColorBackGround}>
       <Scene
         key="leadtab"
-        title="Lideres"
         icon={leadsIcon}
         eftButtonIconStyle={styles.navBarLeft}
         rightButtonIconStyle={styles.navBarRight}
@@ -125,10 +124,10 @@ const scenes = Actions.create(
         onLeft={() => Actions.newssettings()}
         rightButtonImage={TOURNAMENT_IMAGE}
         onRight={() => Actions.tournamentNdDivisionsLead()}
-        key="leads"
-        component={LeadersView}
-        title="Lideres"
+        component={UsersHandler}
+        title="Perfiles"
       />
+
      <Scene
        leftButtonText={styles.navBarLeftText}
        leftButtonIconStyle={styles.navBarLeft}

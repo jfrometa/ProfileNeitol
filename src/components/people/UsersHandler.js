@@ -12,6 +12,12 @@ import { C_NAV_MENU, C_DEFAULT_TEXT_COLOR, C_ACCENT } from '../types';
 import UsersList from './UsersList';
 
 class UsersHandler extends Component {
+  componentWillMount() {
+    //console.log(`this is the prop label ${this.props.label}`);
+    this.props.requestPersonalInfo();
+    //this.dataSource = [];
+  }
+
 //prerenderingSiblingsNumber={2}
   render() {
     return (
@@ -44,7 +50,6 @@ class UsersHandler extends Component {
 const styles = StyleSheet.create({
   tabView: {
     flex: 1,
-    marginBottom: 50,
     backgroundColor: C_NAV_MENU
   },
   scrollableTab: {
@@ -74,6 +79,7 @@ const mapStateToProps = (state) => {
   const rows = [];
   const localLabels = ['Contacts', 'Public Profile'];
   let i = 0;
+
   localLabels.forEach(label => {
     i++;
     if (label === 'Contacts') {
@@ -83,9 +89,7 @@ const mapStateToProps = (state) => {
           key={i}
           style={styles.tabView}
         >
-          <UsersList
-            label={label}
-          />
+          <UsersList />
         </View>
       );
     } else {

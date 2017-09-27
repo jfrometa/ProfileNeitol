@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
    ListView,
-   View,
- Text } from 'react-native';
+   View
+ } from 'react-native';
 import { connect } from 'react-redux';
 import UserItem from './UserItem';
 import { requestPersonalInfo } from './actions';
@@ -13,45 +13,52 @@ import { C_CARD_COLOR, C_DEFAULT_TEXT_COLOR, C_NAV_MENU } from '../types';
 
 class UserList extends Component {
   componentWillMount() {
-    //console.log(`this is the prop label ${this.props.label}`);
-    this.props.requestPersonalInfo();
-    //this.createDataSource(this.props);
+      //nextProps are the next set of props that this component
+      // will render with this.props
+    //console.log('Props', this.props);
+    this.createDataSource(this.props);
   }
-
   componentWillReceiveProps(nextProps) {
       //nextProps are the next set of props that this component
       // will render with this.props
+    //console.log('nextProps', nextProps);
     this.createDataSource(nextProps);
   }
 
   createDataSource(props) {
     const personalInfo = props;
-    console.log(personalInfo);
-    //console.log(props.goalLeaders);
     if (personalInfo) {
       if (personalInfo.uid !== undefined) {
         delete personalInfo.uid;
       }
 
-      //const peopleArray = [];
       const ds = new ListView.DataSource({
           rowHasChanged: (r1, r2) => r1 !== r2
       });
-      //add extra data you want to pass down
-      // const dataKey = Object.keys(personalInfo);
-      //   dataKey.forEach((key, index) => {
-      //     personalInfo[key].index = index;
-      //     peopleArray.push(personalInfo[key]);
-      //   });
-
-      this.dataSource = ds.cloneWithRows(personalInfo);
+      this.dataSource = ds.cloneWithRows(personalInfo.personalInfo);
     }
   }
 
- renderRow(leads, rowID) {
+ renderRow(detail, rowID) {
    return (
-     <UserItem label={this.props.label} leads={leads} key={rowID} />
+     <UserItem label={this.props.label} details={detail} key={rowID} />
    );
+ }
+
+ renderList() {
+   if (this.props.personalInfo !== undefined) {
+      return (
+        <ListView
+          style={styles.list}
+          enableEmptySections
+          dataSource={this.dataSource}
+          renderRow={(rowData, sectionID, rowID) => this.renderRow(rowData, rowID)}
+          renderSeparator={(sectionID, rowID) =>
+            <View key={`${sectionID}-${rowID}`} style={styles.separator} />
+            }
+        />
+      );
+   }
  }
 
   render() {
@@ -59,8 +66,8 @@ class UserList extends Component {
       return <Spinner />;
     }
   return (
-      <View style={styles.peopleList}>
-        <Text> hola </Text>
+      <View style={styles.peopleList} >
+       {this.renderList()}
       </View>
     );
   }
@@ -104,7 +111,7 @@ const styles = StyleSheet.create({
    marginRight: 16,
    borderBottomColor: C_NAV_MENU
  },
- leadList: {
+ list: {
     flex: 1,
     backgroundColor: C_NAV_MENU
  },

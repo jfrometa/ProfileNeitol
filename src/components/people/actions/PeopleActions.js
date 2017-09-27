@@ -12,7 +12,6 @@ export const requestPersonalInfo = () => {
    firebase.database()
    .ref('/Informacion_personal')
    .on('value', snapshot => {
-     console.log(snapshot);
      requestPersonalInfoSuccess(dispatch, snapshot);
     });
   };
