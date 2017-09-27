@@ -13,7 +13,7 @@ import {
     error: '',
     loading: false
    };
-
+    //...INITIAL_STATE takes all the defaults and calendar: overrides the initial value
    export default (state = INITIAL_STATE, action) => {
      switch (action.type) {
        case REHYDRATE:
@@ -22,7 +22,6 @@ import {
        case REQUEST_FB_POST:
        return { ...state, loading: true, error: '' };
 
-       //...INITIAL_STATE takes all the defaults and calendar: overrides the initial value
        case REQUEST_FB_POST_SUCCESS:
        return { ...state, loading: false, post: action.payload };
 

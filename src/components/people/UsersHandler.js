@@ -10,6 +10,7 @@ import {
 } from './actions';
 import { C_NAV_MENU, C_DEFAULT_TEXT_COLOR, C_ACCENT } from '../types';
 import UsersList from './UsersList';
+import NewsFeed from '../publicProfile/NewsFeed';
 
 class UsersHandler extends Component {
   componentWillMount() {
@@ -98,7 +99,9 @@ const mapStateToProps = (state) => {
           tabLabel={label}
           key={i}
           style={styles.tabView}
-        />
+        >
+          <NewsFeed />
+        </View>
       );
     }
     });
