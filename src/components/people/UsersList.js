@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import UserItem from './UserItem';
 import { requestPersonalInfo } from './actions';
 import { Spinner } from '../common';
-import { C_CARD_COLOR, C_DEFAULT_TEXT_COLOR, C_NAV_MENU } from '../types';
+import { C_CARD_COLOR, C_DEFAULT_TEXT_COLOR, C_GREY_1 } from '../types';
 
 class UserList extends Component {
   componentWillMount() {
@@ -75,25 +75,13 @@ class UserList extends Component {
 
 const styles = StyleSheet.create({
   peopleList: {
-    flex: 1, backgroundColor: C_NAV_MENU
+    flex: 1,
+    backgroundColor: C_CARD_COLOR
   },
   headerContainer: {
      height: 40,
      flexDirection: 'row',
-     backgroundColor: C_NAV_MENU
-  },
-  stat: {
-     flex: 1,
-     fontSize: 17,
-     textAlign: 'right',
-     paddingRight: 16,
-     fontWeight: '600',
-     alignSelf: 'center',
-     color: C_DEFAULT_TEXT_COLOR
-  },
-  banner: {
-    backgroundColor: C_CARD_COLOR,
-    margin: 8
+     backgroundColor: C_DEFAULT_TEXT_COLOR
   },
   headerPlayers: {
      flex: 1,
@@ -107,20 +95,13 @@ const styles = StyleSheet.create({
   separator: {
    marginBottom: 1,
    borderBottomWidth: 1,
-   marginLeft: 16,
-   marginRight: 16,
-   borderBottomColor: C_NAV_MENU
+   marginLeft: 75,
+   marginRight: 12,
+   borderBottomColor: C_GREY_1
  },
  list: {
     flex: 1,
-    backgroundColor: C_NAV_MENU
- },
- image: {
-  padding: 8,
-  resizeMode: 'contain',
-  height: 35,
-  width: 130,
-  alignSelf: 'center'
+    backgroundColor: C_CARD_COLOR
  }
 });
 

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { Icon } from 'react-native-elements';
 import UsersHandler from './components/people/UsersHandler';
 import UserPanel from './components/people/UserPanel';
 import Support from './components/Support';
@@ -12,11 +11,8 @@ import {
   C_NAV_MENU,
   C_DEFAULT_TEXT_COLOR,
   C_CARD_COLOR,
-  I_NEWSFEED,
   C_GREY_300,
-  TOURNAMENT_IMAGE,
   C_DEFAULT,
-  I_LEADS,
   icons
 } from './components/types';
 
@@ -62,9 +58,10 @@ const styles = StyleSheet.create({
   navBarRight: {
     marginTop: 13,
     paddingRight: 24,
-    width: 24,
-    height: 24,
-    tintColor: C_ACCENT
+    width: 20,
+    height: 20,
+    tintColor: C_ACCENT,
+    resizeMode: 'contain'
   },
   iconBottomBar: {
     height: 24,

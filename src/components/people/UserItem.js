@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-
+import { LinearGradient } from 'expo';
 import {
   C_ACCENT,
   C_CARD_COLOR,
   C_DEFAULT_TEXT_COLOR,
-  C_GREY_1
+  C_UPGRADE_ORANGE,
+  C_NAV_MENU
 } from '../types';
 
 class LeadsItem extends Component {
@@ -24,14 +25,6 @@ renderName(name, lastname) {
     return `${name} ${lastname}`;
   }
 }
- // bday
- // lastname
- // mothertonge
- // name
- // nationality
- // party
- // picture
- // religion
 
   render() {
     const {
@@ -42,7 +35,10 @@ renderName(name, lastname) {
      picture } = this.props.details;
 
     return (
-      <View style={styles.cardStyle}>
+      <LinearGradient
+          colors={[C_NAV_MENU, C_CARD_COLOR, C_CARD_COLOR]}
+          style={styles.cardStyle}
+      >
       <TouchableOpacity onPress={this.toggleModalAndRequestDetails.bind(this)} >
           <View style={styles.container}>
           <Image
@@ -55,10 +51,12 @@ renderName(name, lastname) {
             <Text style={styles.nationality}>{nationality}</Text>
           </View>
 
+          <View style={styles.partyContainer}>
           <Text style={styles.party}>{party}</Text>
+          </View>
         </View>
     </TouchableOpacity>
-  </View>
+  </LinearGradient>
     );
   }
 }
@@ -76,25 +74,33 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '300',
     textAlign: 'left',
-    color: C_GREY_1
+    color: C_ACCENT
   },
   cardStyle: {
     flex: 1,
     backgroundColor: C_CARD_COLOR
 },
   container: {
+    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 12
+    padding: 2
   },
   nameAndNationality: {
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
     padding: 12
   },
+  partyContainer: {
+    flex: 1,
+    marginBottom: 8,
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+  },
   party: {
-    alignSelf: 'center',
-    color: C_ACCENT,
+    marginRight: 16,
+    marginBottom: 6,
+    color: C_UPGRADE_ORANGE,
   },
   image: {
     width: 50,
