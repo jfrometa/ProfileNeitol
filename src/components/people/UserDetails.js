@@ -11,7 +11,7 @@ import {
   C_CARD_COLOR,
   C_ACCENT,
   C_DEFAULT_TEXT_COLOR,
-  ICONS,
+  icons,
   C_GREY_1
  } from '../types';
 
@@ -75,106 +75,70 @@ const styles = StyleSheet.create({
 class UserDetails extends Component {
   render() {
     const {
-       division,
-       dominant_food,
-       goals,
-       height,
-       name,
-       number,
-       position,
-       red_cards,
-       team,
-       weigth,
-       yellow_cards } = this.props.details;
+     bday,
+     lastname,
+     mothertonge,
+     name,
+     nationality,
+     party,
+     picture,
+     religion } = this.props.details;
 
     return (
         <View style={styles.container}>
           <TouchableOpacity style={styles.headerContainer} onPress={() => Actions.pop()}>
             <Image
-             source={{ uri: this.props.details.picture }}
+             source={{ uri: picture }}
              style={styles.headerImage}
              cache
             />
-            <Text style={styles.headerName}> {name} </Text>
-            <Text style={styles.headerNumber}> {number} </Text>
+            <Text style={styles.headerName}> {name} {lastname} </Text>
+            <Text style={styles.headerNumber}> {bday} </Text>
           </TouchableOpacity>
 
           <ScrollView style={styles.bodyContainer}>
 
           <View style={styles.rowFormat} >
             <Image
-             source={ICONS.club}
+             source={icons.lenguage}
              style={styles.rowIcon}
             />
             <View style={styles.rowTextContainer}>
-              <Text style={styles.rowInfo}> {team} </Text>
-              <Text style={styles.rowTitle}> Equipo </Text>
+              <Text style={styles.rowInfo}> {mothertonge} </Text>
+              <Text style={styles.rowTitle}> Mother Thonge </Text>
             </View>
           </View>
 
           <View style={styles.rowFormat} >
             <Image
-             source={ICONS.division}
+             source={icons.party}
              style={styles.rowIcon}
             />
             <View style={styles.rowTextContainer}>
-              <Text style={styles.rowInfo}> {division} </Text>
-              <Text style={styles.rowTitle}> Division </Text>
+              <Text style={styles.rowInfo}> {party} </Text>
+              <Text style={styles.rowTitle}> Party </Text>
             </View>
           </View>
 
           <View style={styles.rowFormat} >
             <Image
-             source={ICONS.position}
+             source={icons.nationality}
              style={styles.rowIcon}
             />
             <View style={styles.rowTextContainer}>
-              <Text style={styles.rowInfo}> {position} </Text>
-              <Text style={styles.rowTitle}> Posicion </Text>
+              <Text style={styles.rowInfo}> {nationality} </Text>
+              <Text style={styles.rowTitle}> Natinality </Text>
             </View>
           </View>
 
           <View style={styles.rowFormat} >
             <Image
-             source={ICONS.weight}
+             source={icons.religion}
              style={styles.rowIcon}
             />
             <View style={styles.rowTextContainer}>
-              <Text style={styles.rowInfo}> {weigth}/{height} </Text>
-              <Text style={styles.rowTitle}> Peso y Estatura </Text>
-            </View>
-          </View>
-
-          <View style={styles.rowFormat} >
-            <Image
-             source={ICONS.dominantFoot}
-             style={styles.rowIcon}
-            />
-            <View style={styles.rowTextContainer}>
-              <Text style={styles.rowInfo}> {dominant_food} </Text>
-              <Text style={styles.rowTitle}> Pie Dominante </Text>
-            </View>
-          </View>
-
-          <View style={styles.rowFormat} >
-            <Image
-             source={ICONS.goals}
-             style={styles.rowIcon}
-            />
-            <View style={styles.rowTextContainer}>
-              <Text style={styles.rowInfo}> {goals} </Text>
-              <Text style={styles.rowTitle}> Goles </Text>
-            </View>
-          </View>
-
-          <View style={styles.rowFormat} >
-            <Image
-             source={ICONS.cards}
-             style={styles.rowIcon}
-            />
-            <View style={styles.rowTextContainer}>
-              <Text style={styles.rowInfo}> {yellow_cards} Amarillas y {red_cards} Rojas </Text>
-              <Text style={styles.rowTitle}> Goles </Text>
+              <Text style={styles.rowInfo}> {religion} </Text>
+              <Text style={styles.rowTitle}> Religion </Text>
             </View>
           </View>
 

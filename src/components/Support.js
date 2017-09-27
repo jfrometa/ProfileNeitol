@@ -9,7 +9,7 @@ import {
  } from 'react-native';
 import {
   C_NAV_MENU,
-  UPGRADE_LOGO,
+  icons,
   C_GREY_1,
   C_UPGRADE,
 } from './types';
@@ -91,7 +91,7 @@ class Support extends Component {
     <View style={styles.topPayola}>
       <Image
         resizeMode='contain'
-        source={UPGRADE_LOGO}
+        source={icons.upgradeLogo}
         style={styles.headerUpgradeLogo}
       />
       <Text style={styles.headerTittle}>

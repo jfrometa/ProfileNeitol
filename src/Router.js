@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Image } from 'react-native';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
-import LeadersView from './components/people/UsersHandler';
+import UsersHandler from './components/people/UsersHandler';
 import UserPanel from './components/people/UserPanel';
 import Support from './components/Support';
 
@@ -17,7 +17,7 @@ import {
   TOURNAMENT_IMAGE,
   C_DEFAULT,
   I_LEADS,
-  SETTINGS
+  icons
 } from './components/types';
 
 //by using StyleSheet for your styles you will eliminate unnecesary JS bridge conections
@@ -73,71 +73,30 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   }
 });
-//////  TABS ICONS
-const leadsIcon = ({ selected, title }) => {
-  return (
-    <View>
-      <Image
-        source={I_LEADS}
-        style={[styles.iconBottomBar,
-          { tintColor: selected ? C_ACCENT : C_DEFAULT }]}
-      />
-      <Text
-         style={{
-         color: selected ? C_ACCENT : C_DEFAULT,
-         fontSize: 11 }}
-      >
-         {title}
-      </Text>
-    </View>
-  );
-};
-const newsfeedIcon = ({ selected, title }) => {
-  return (
-    <View>
-    <Image
-      source={I_NEWSFEED}
-      style={[styles.iconBottomBar,
-        { tintColor: selected ? C_ACCENT : C_DEFAULT }]}
-    />
-      <Text
-         style={{
-         color: selected ? C_ACCENT : C_DEFAULT,
-         fontSize: 11 }}
-      >
-         {title}
-      </Text>
-    </View>
-  );
-};
+
 //////// SCENES
 const scenes = Actions.create(
     <Scene key="main" style={styles.primaryColorBackGround}>
       <Scene
-        key="leadtab"
-        title="Lideres"
-        icon={leadsIcon}
-        eftButtonIconStyle={styles.navBarLeft}
+        key="profiles"
         rightButtonIconStyle={styles.navBarRight}
         titleStyle={styles.navBarTittle}
         sceneStyle={styles.scene}
-        leftButtonImage={SETTINGS}
-        onLeft={() => Actions.newssettings()}
-        rightButtonImage={TOURNAMENT_IMAGE}
-        onRight={() => Actions.tournamentNdDivisionsLead()}
-        key="leads"
-        component={LeadersView}
-        title="Lideres"
+        rightButtonImage={icons.settings}
+        onRight={() => Actions.support()}
+        component={UsersHandler}
+        title="Profiles"
       />
+
      <Scene
        leftButtonText={styles.navBarLeftText}
        leftButtonIconStyle={styles.navBarLeft}
        backButtonTextStyle={styles.navBarLeftText}
-       backTitle="Atras"
+       backTitle="Back"
        sceneStyle={styles.scene}
-       key="newssettings"
+       key="support"
        component={Support}
-       title="Configuracion"
+       title="Support"
      />
 
     <Scene
