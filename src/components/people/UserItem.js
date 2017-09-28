@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { LinearGradient } from 'expo';
 import {
   C_ACCENT,
-  C_CARD_COLOR,
   C_DEFAULT_TEXT_COLOR,
   C_UPGRADE_ORANGE,
   C_NAV_MENU
@@ -35,28 +33,23 @@ renderName(name, lastname) {
      picture } = this.props.details;
 
     return (
-      <LinearGradient
-          colors={[C_NAV_MENU, C_CARD_COLOR, C_CARD_COLOR]}
-          style={styles.cardStyle}
-      >
       <TouchableOpacity onPress={this.toggleModalAndRequestDetails.bind(this)} >
           <View style={styles.container}>
-          <Image
-            style={styles.image}
-            source={{ uri: picture }}
-            cache
-          />
+            <Image
+              style={styles.image}
+              source={{ uri: picture }}
+              cache
+            />
           <View style={styles.nameAndNationality}>
             <Text style={styles.name}>{this.renderName(name, lastname) }</Text>
             <Text style={styles.nationality}>{nationality}</Text>
           </View>
 
           <View style={styles.partyContainer}>
-          <Text style={styles.party}>{party}</Text>
+            <Text style={styles.party}>{party}</Text>
           </View>
         </View>
     </TouchableOpacity>
-  </LinearGradient>
     );
   }
 }
@@ -78,9 +71,10 @@ const styles = StyleSheet.create({
   },
   cardStyle: {
     flex: 1,
-    backgroundColor: C_CARD_COLOR
+    backgroundColor: C_NAV_MENU
 },
   container: {
+    backgroundColor: C_NAV_MENU,
     flex: 1,
     flexDirection: 'row',
     padding: 2
