@@ -21,7 +21,7 @@ click and scan : https://expo.io/@jfrometa/profileneitol
   redux-persist
   redux-thunk
   
-## Required to run the react-native expo projects
+## Required to run react-native expo projects
 
 //install python 2
 https://www.python.org/downloads/
