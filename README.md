@@ -3,7 +3,7 @@ Developers who want to start using react-native or wondering about the required 
 
 ## Stack
 
-  expo \n
+  expo  
   firebase
   facebook SDK
   lodash
