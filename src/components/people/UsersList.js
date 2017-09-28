@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import UserItem from './UserItem';
 import { requestPersonalInfo } from './actions';
 import { Spinner } from '../common';
-import { C_CARD_COLOR, C_DEFAULT_TEXT_COLOR, C_GREY_1 } from '../types';
+import { C_CARD_COLOR, C_DEFAULT_TEXT_COLOR, C_GREY_1, C_NAV_MENU } from '../types';
 
 class UserList extends Component {
   componentWillMount() {
@@ -76,7 +76,7 @@ class UserList extends Component {
 const styles = StyleSheet.create({
   peopleList: {
     flex: 1,
-    backgroundColor: C_CARD_COLOR
+    backgroundColor: C_NAV_MENU
   },
   headerContainer: {
      height: 40,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
  },
  list: {
     flex: 1,
-    backgroundColor: C_CARD_COLOR
+    backgroundColor: C_NAV_MENU
  }
 });
 

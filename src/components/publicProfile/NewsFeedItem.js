@@ -5,7 +5,9 @@ import { LinearGradient } from 'expo';
 import {
   C_DEFAULT_TEXT_COLOR,
   C_CARD_COLOR,
-  C_NAV_MENU } from '../types';
+  C_NAV_MENU,
+  C_UPGRADE,
+  C_UPGRADE_ORANGE } from '../types';
 
   const { width } = Dimensions.get('window');
   const w = width;
@@ -29,7 +31,7 @@ class NewsFeedItem extends Component {
     }
     return (
       <LinearGradient
-          colors={[C_NAV_MENU, C_CARD_COLOR, C_CARD_COLOR]}
+          colors={[C_NAV_MENU, C_CARD_COLOR, C_UPGRADE_ORANGE, C_NAV_MENU]}
           style={styles.card}
       >
           <View style={styles.touchContainer}>
@@ -94,6 +96,8 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     width: 50,
     height: 50,
+    margin: 4,
+    marginBottom: 12,
     borderRadius: 25,
     marginLeft: 16,
     paddingBottom: 2
@@ -102,7 +106,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    margin: 4,
     backgroundColor: 'transparent'
   },
   bodyImage: {
@@ -113,7 +116,6 @@ const styles = StyleSheet.create({
   },
   bodyStyle: {
     backgroundColor: 'transparent',
-    padding: 8,
     fontSize: 13,
     textAlign: 'left',
     color: C_DEFAULT_TEXT_COLOR

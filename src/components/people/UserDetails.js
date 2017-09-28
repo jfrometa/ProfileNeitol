@@ -110,7 +110,7 @@ class UserDetails extends Component {
         <View style={styles.container}>
           <LinearGradient
               colors={
-               [C_CARD_COLOR, C_UPGRADE_ORANGE, C_UPGRADE]
+               [C_UPGRADE, C_UPGRADE, C_UPGRADE_ORANGE]
               }
           >
           <TouchableOpacity style={styles.headerContainer} onPress={() => Actions.pop()}>
@@ -135,7 +135,7 @@ class UserDetails extends Component {
                 />
                 <View style={styles.rowTextContainer}>
                   <Text style={styles.rowInfo}> {mothertonge} </Text>
-                  <Text style={styles.rowTitle}> Mother Thonge </Text>
+                  <Text style={styles.rowTitle}> Mother Tonge </Text>
                 </View>
               </View>
 
@@ -160,7 +160,7 @@ class UserDetails extends Component {
                 />
                 <View style={styles.rowTextContainer}>
                   <Text style={styles.rowInfo}> {nationality} </Text>
-                  <Text style={styles.rowTitle}> Natinality </Text>
+                  <Text style={styles.rowTitle}> Nationality </Text>
                 </View>
               </View>
 
