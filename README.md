@@ -3,6 +3,9 @@ Developers who want to start using react-native or wondering about the required 
 
 <a href="https://imgflip.com/gif/1wnqc7"><img src="https://i.imgflip.com/1wnqc7.gif" title="made at imgflip.com"/></a>
 
+### scan with expo
+click and scan : https://expo.io/@jfrometa/profileneitol
+
 ## Stack
 
   expo
