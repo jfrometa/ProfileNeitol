@@ -1,6 +1,8 @@
 # ProfileNeitol
 Developers who want to start using react-native or wondering about the required lib stack.
 
+<a href="https://imgflip.com/gif/1wnqc7"><img src="https://i.imgflip.com/1wnqc7.gif" title="made at imgflip.com"/></a>
+
 ## Stack
 
   expo
